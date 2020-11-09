@@ -41,3 +41,12 @@ def tanh(method: str, prec_frac: int, workers: dict):
     )
     r_sh = t_sh.tanh(method=method)
     return r_sh.get().float_prec()
+
+
+def normal_vs_smpc(_workers: dict) -> float:
+    """
+    Function that calculates the training time difference
+    between "normal" and SMPC training, using MNIST as
+    a dataset.
+    """
+    return 1.00

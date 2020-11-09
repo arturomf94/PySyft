@@ -1,7 +1,11 @@
 """
 Define benchmark tests
 """
-from benchmarks.frameworks.torch.mpc.pytestbenchmark.benchmark_functions import sigmoid, tanh
+from benchmarks.frameworks.torch.mpc.pytestbenchmark.benchmark_functions import (
+    sigmoid,
+    tanh,
+    normal_vs_smpc,
+)
 
 
 def test_sigmoid_chebyshev(benchmark, workers):
@@ -42,3 +46,11 @@ def test_tanh_sigmoid(benchmark, workers):
     precision value of 4
     """
     benchmark(tanh, "sigmoid", 4, workers)
+
+
+def test_normal_vs_smpc_training(benchmark, workers):
+    """
+    Benchmark the training time difference between
+    "normal" training and SMPC training.
+    """
+    benchmark(normal_vs_smpc, workers)
